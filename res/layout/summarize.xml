@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/ActiveTodoBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Active Todos"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/CheckedBanner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ArchiveTodoBanner"
+        android:text="Checked" />
+
+    <TextView
+        android:id="@+id/UncheckedBanner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ArchiveTodoBanner"
+        android:text="Unchecked" />
+
+    <TextView
+        android:id="@+id/ArchiveTodoBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="Archived Todos"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/CheckedBanner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ActiveTodoBanner"
+        android:text="Checked" />
+
+    <TextView
+        android:id="@+id/UncheckedBanner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckedBanner2"
+        android:layout_alignBottom="@+id/CheckedBanner2"
+        android:layout_alignParentRight="true"
+        android:text="Unchecked" />
+
+    <TextView
+        android:id="@+id/CheckedActiveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/CheckedBanner2"
+        android:layout_marginTop="48dp"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/UncheckedActiveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckedActiveText"
+        android:layout_alignBottom="@+id/CheckedActiveText"
+        android:layout_alignParentRight="true"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/CheckedArchivedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/CheckedBanner1"
+        android:layout_marginTop="52dp"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/UncheckedArchivedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckedArchivedText"
+        android:layout_alignBottom="@+id/CheckedArchivedText"
+        android:layout_alignParentRight="true"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
