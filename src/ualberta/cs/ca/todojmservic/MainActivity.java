@@ -24,9 +24,22 @@ public class MainActivity extends Activity {
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ToDoListView);
 		Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
-		ArrayList<Todos> todoslist = new ArrayList<Todos>(todos);
-		ArrayAdapter<Todos> todosAdapter = new ArrayAdapter<Todos>(this, android.R.layout.simple_list_item_1,todoslist);
+		final ArrayList<Todos> todoslist = new ArrayList<Todos>(todos);
+		final ArrayAdapter<Todos> todosAdapter = new ArrayAdapter<Todos>(this, android.R.layout.simple_list_item_1,todoslist);
 		listview.setAdapter(todosAdapter);
+		
+		//Observer Pattern
+		TodoSingle.getTodoList().addListner(new Listner(){
+
+			@Override
+			public void update() {
+				todoslist.clear();
+				Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
+				todoslist.addAll(todos);
+				todosAdapter.notifyDataSetChanged();
+			}
+			
+		});
 	}
 
 	@Override
