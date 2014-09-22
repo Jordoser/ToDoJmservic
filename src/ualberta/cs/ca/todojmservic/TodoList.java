@@ -11,7 +11,7 @@ public class TodoList {
 		todolist = new ArrayList<Todos>();
 	}
 	
-	public Collection<Todos> getTodoList(){
+	public Collection<Todos> getTodos(){
 		return todolist;
 
 	}

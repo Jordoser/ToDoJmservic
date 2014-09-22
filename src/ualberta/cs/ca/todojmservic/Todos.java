@@ -11,5 +11,8 @@ public class Todos {
 		return todotask;
 		
 	}
+	public String toString(){
+		return getTodoText();
+	}
 
 }

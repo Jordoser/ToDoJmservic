@@ -1,12 +1,18 @@
 package ualberta.cs.ca.todojmservic;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -15,6 +21,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//Get ListObjects
+		ListView listview =  (ListView) findViewById(R.id.ToDoListView);
+		Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
+		ArrayList<Todos> todoslist = new ArrayList<Todos>(todos);
+		ArrayAdapter<Todos> todosAdapter = new ArrayAdapter<Todos>(this, android.R.layout.simple_list_item_1,todoslist);
+		listview.setAdapter(todosAdapter);
 	}
 
 	@Override
@@ -38,9 +50,10 @@ public class MainActivity extends Activity {
 
 	public void addTodo(View v){
 		Toast.makeText(this, "Add Todo",Toast.LENGTH_SHORT).show();
-		TodoSingle todoinst = new TodoSingle();
-		EditText todotext = (EditText) findViewById(R.id.AddTodoEditText);
-		todoinst.addTodo(new Todos(todotext.getText().toString()));
+		TodoSingle ts = new TodoSingle();
+		EditText newTodoText = (EditText) findViewById(R.id.AddTodoEditText);
+		ts.addTodo(new Todos(newTodoText.getText().toString()));
+	
 		
 	}
 }
