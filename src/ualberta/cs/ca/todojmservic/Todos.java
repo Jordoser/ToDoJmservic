@@ -1,5 +1,7 @@
 package ualberta.cs.ca.todojmservic;
 
+import java.util.ArrayList;
+
 public class Todos {
 	protected String todotask;
 	
@@ -14,5 +16,17 @@ public class Todos {
 	public String toString(){
 		return getTodoText();
 	}
+
+	public String done() {
+		return (todotask + "\u2713");
+		
+	}
+
+	public String notdone() {
+		return todotask.replace("\u2713", "");
+
+	}
+
+
 
 }

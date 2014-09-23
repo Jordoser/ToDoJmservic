@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -44,6 +45,19 @@ public class MainActivity extends Activity {
 				todosAdapter.notifyDataSetChanged();
 			}
 			
+			
+		});
+		
+		listview.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position,
+					long id) {
+				final int finalPosition = position;
+				Todos todo = todoslist.get(finalPosition);
+				TodoSingle.getTodoList().check(todo);
+				
+			}
 			
 		});
 		
@@ -99,23 +113,23 @@ public class MainActivity extends Activity {
 	}
 
 	public void archive(MenuItem menu) {
-		Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
 		startActivity(intent);
 	}
 
 	public void summarize(MenuItem menu) {
-		Toast.makeText(this, "summarize", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "summarize", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(MainActivity.this, SummarizeActivity.class);
 		startActivity(intent);
 	}
 
 	public void addTodo(View v){
-		Toast.makeText(this, "Add Todo",Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Add Todo",Toast.LENGTH_SHORT).show();
 		TodoSingle ts = new TodoSingle();
 		EditText newTodoText = (EditText) findViewById(R.id.AddTodoEditText);
 		ts.addTodo(new Todos(newTodoText.getText().toString()));
-	
+		newTodoText.setText("");
 		
 	}
 }
