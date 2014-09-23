@@ -5,10 +5,15 @@ import java.util.Collection;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -29,7 +34,7 @@ public class MainActivity extends Activity {
 		listview.setAdapter(todosAdapter);
 		
 		//Observer Pattern
-		TodoSingle.getTodoList().addListner(new Listner(){
+		TodoSingle.getTodoList().addListener(new Listener(){
 
 			@Override
 			public void update() {
@@ -37,6 +42,50 @@ public class MainActivity extends Activity {
 				Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
 				todoslist.addAll(todos);
 				todosAdapter.notifyDataSetChanged();
+			}
+			
+			
+		});
+		
+		listview.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity.this);
+				ad.setMessage("Delete "+ todoslist.get(position).toString()+"?");
+				ad.setCancelable(true);
+				final int finalPosition = position;
+				ad.setPositiveButton("Delete", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Todos todo = todoslist.get(finalPosition);
+						TodoSingle.getTodoList().removeTodo(todo);
+						
+					}
+					
+				});
+				//Crashing for some reason :(
+				ad.setNeutralButton("Archive", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Todos todo = todoslist.get(finalPosition);
+						TodoSingle.getTodoList().removeTodo(todo);
+						ArchiveSingle.getArchive().addTodo(todo);
+					
+						
+					}
+					
+				});
+				ad.setNegativeButton("Cancel", new OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+					});
+					
+				ad.show();
+				return false;
 			}
 			
 		});

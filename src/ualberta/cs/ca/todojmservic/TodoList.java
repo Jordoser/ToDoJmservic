@@ -6,12 +6,13 @@ import java.util.Collection;
 public class TodoList {
 	
 	protected ArrayList<Todos> todolist;
-	protected ArrayList<Listner> listners;
+	protected ArrayList<Listener> listeners;
+	protected ArrayList<Todos> archived;
 	
 	
 	public TodoList(){
 		todolist = new ArrayList<Todos>();
-		listners = new ArrayList<Listner>();
+		listeners = new ArrayList<Listener>();
 	}
 	
 	public Collection<Todos> getTodos(){
@@ -25,21 +26,24 @@ public class TodoList {
 	}
 	
 	private void notifyeveryone() {
-		for(Listner listner: listners){
-			listner.update();
+		for(Listener listener: listeners){
+			listener.update();
 		}
 		
 	}
 
 	public void removeTodo(Todos todo){
 		todolist.remove(todo);
+		notifyeveryone();
 	}
 	
-	public void addListner(Listner l){
-		listners.add(l);
+	public void addListener(Listener l){
+		listeners.add(l);
 	}
-	public void removeListner(Listner l){
-		listners.remove(l);
+	public void removeListener(Listener l){
+		listeners.remove(l);
 	}
+
+
 
 }

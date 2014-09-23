@@ -1,6 +1,6 @@
 package ualberta.cs.ca.todojmservic;
 
-public interface Listner {
+public interface Listener {
 
 	public void update();
 
