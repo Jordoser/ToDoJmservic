@@ -63,6 +63,26 @@ public class TodoList {
 	public void removeListener(Listener l){
 		listeners.remove(l);
 	}
+	
+	public String Count(){
+		int count = 0;
+		String scount = "";
+		for (Todos TodoList : todolist) {
+			if (TodoList.toString().toLowerCase().contains("\u2713")){
+				count = count + 1;
+			}
+		}
+		scount = new Integer(count).toString();
+		return scount;
+		
+	}
+	
+	public String UnCount(){
+		int count = todolist.size() - Integer.parseInt(Count());
+		String scount = "";
+		scount = new Integer(count).toString();
+		return scount;
+	}
 
 
 
