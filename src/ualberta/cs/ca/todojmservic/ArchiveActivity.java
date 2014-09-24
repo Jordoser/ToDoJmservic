@@ -21,6 +21,7 @@ public class ArchiveActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.archive);
+		ArcIO.init(this.getApplicationContext());
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ArchiveListView);
 		Collection<Todos> todos = ArchiveSingle.getArchive().getTodos();

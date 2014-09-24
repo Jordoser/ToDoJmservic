@@ -21,6 +21,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+//To Send Emails create an email Activity with a list view, allow for sending to list view
+//Email all option populates the list from all, uses email. clear listview after email.
+
 public class MainActivity extends Activity {
 
 	@Override
@@ -28,6 +32,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		TodoListIO.init(this.getApplicationContext());
+		ArcIO.init(this.getApplicationContext());
+
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ToDoListView);
 		Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
