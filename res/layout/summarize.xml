@@ -98,4 +98,23 @@
         android:text="0"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckedBanner1"
+        android:layout_alignBottom="@+id/CheckedBanner1"
+        android:layout_centerHorizontal="true"
+        android:text="Total Archived"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TotalArchiveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/CheckedArchivedText"
+        android:layout_centerHorizontal="true"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

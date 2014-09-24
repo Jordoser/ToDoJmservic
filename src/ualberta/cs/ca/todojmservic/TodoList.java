@@ -1,20 +1,34 @@
 package ualberta.cs.ca.todojmservic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import android.R.string;
 
-public class TodoList {
+public class TodoList implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3949756761262991636L;
 	protected ArrayList<Todos> todolist;
-	protected ArrayList<Listener> listeners;
-	protected ArrayList<Todos> archived;
+	protected transient ArrayList<Listener> listeners;
+
 	
 	
 	public TodoList(){
 		todolist = new ArrayList<Todos>();
 		listeners = new ArrayList<Listener>();
+		
+	}
+	
+	
+	private ArrayList<Listener> getListeners() {
+		if (listeners == null ) {
+			listeners = new ArrayList<Listener>();
+		}
+		return listeners;
 	}
 	
 	public Collection<Todos> getTodos(){
@@ -58,10 +72,10 @@ public class TodoList {
 	}
 	
 	public void addListener(Listener l){
-		listeners.add(l);
+		getListeners().add(l);
 	}
 	public void removeListener(Listener l){
-		listeners.remove(l);
+		getListeners().remove(l);
 	}
 	
 	public String Count(){
@@ -81,6 +95,12 @@ public class TodoList {
 		int count = todolist.size() - Integer.parseInt(Count());
 		String scount = "";
 		scount = new Integer(count).toString();
+		return scount;
+	}
+
+	public CharSequence TotalCount() {
+		int count  = todolist.size();
+		String scount = new Integer(count).toString(); 
 		return scount;
 	}
 

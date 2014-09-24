@@ -38,6 +38,10 @@ public class SummarizeActivity extends Activity {
 		
 		TextView unarc = (TextView) findViewById(R.id.UncheckedArchivedText);
 		unarc.setText(ArchiveSingle.getArchive().UnCount());
+		
+		TextView total = (TextView) findViewById(R.id.TotalArchiveText);
+		total.setText(ArchiveSingle.getArchive().TotalCount());
+		
 	}
 
 	@Override

@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		TodoListIO.init(this.getApplicationContext());
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ToDoListView);
 		Collection<Todos> todos = TodoSingle.getTodoList().getTodos();
@@ -128,7 +129,11 @@ public class MainActivity extends Activity {
 		//Toast.makeText(this, "Add Todo",Toast.LENGTH_SHORT).show();
 		TodoSingle ts = new TodoSingle();
 		EditText newTodoText = (EditText) findViewById(R.id.AddTodoEditText);
-		ts.addTodo(new Todos(newTodoText.getText().toString()));
+		if ((newTodoText.getText().toString().trim().length()) == 0 ){
+			Toast.makeText(this, "Please enter a Todo",Toast.LENGTH_SHORT).show();
+		}else{
+			ts.addTodo(new Todos(newTodoText.getText().toString()));
+		}
 		newTodoText.setText("");
 		
 	}
