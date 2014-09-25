@@ -23,6 +23,21 @@ public class EmailActivity extends Activity {
 		final ArrayList<Todos> emaillist = new ArrayList<Todos>(emails);
 		final ArrayAdapter<Todos> todosAdapter = new ArrayAdapter<Todos>(this, android.R.layout.simple_list_item_1,emaillist);	
 		listview.setAdapter(todosAdapter);
+		
+		//Observer Pattern
+		TodoSingle.getEmails().addListener(new Listener(){
+
+			@Override
+			public void update() {
+				emaillist.clear();
+				Collection<Todos> todos = TodoSingle.getEmails().getTodos();
+				emaillist.addAll(todos);
+				todosAdapter.notifyDataSetChanged();
+			}
+			
+			
+		});
+		
 	}
 
 	@Override
@@ -36,6 +51,22 @@ public class EmailActivity extends Activity {
 		//Needs to be notified
 		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		TodoSingle.getEmails().clear();
+	}
+	
+	public void addAll(View v){
+		Collection<Todos> todo = TodoSingle.getTodoList().getTodos();
+		Collection<Todos> arcs = ArchiveSingle.getArchive().getTodos();
+		ArrayList<Todos> all = new ArrayList<Todos>();
+		all.addAll(arcs);
+		all.addAll(todo);
+		TodoSingle.getEmails().set(all);
+		
+		
+		
+		
+		
+		
+		
 	}
 
 

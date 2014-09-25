@@ -106,6 +106,15 @@ public class TodoList implements Serializable {
 
 	public void clear(){
 		todolist = new ArrayList<Todos>();
+		notifyeveryone();
+	}
+
+
+	public void set(ArrayList<Todos> emails) {
+		todolist = emails;
+		notifyeveryone();
+		
+		
 	}
 
 }

@@ -1,6 +1,8 @@
 package ualberta.cs.ca.todojmservic;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class TodoSingle {
 	private static TodoList todolist = null;
@@ -42,6 +44,9 @@ public class TodoSingle {
 		
 	}
 	
+	public void set(ArrayList<Todos> emails){
+		getEmails().set(emails);
+	}
 
 	
 	static public TodoList getEmails(){

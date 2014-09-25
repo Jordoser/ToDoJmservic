@@ -25,7 +25,8 @@
         android:layout_alignBaseline="@+id/ListButton"
         android:layout_alignBottom="@+id/ListButton"
         android:layout_alignParentRight="true"
-        android:text="Email All" />
+        android:text="Add All" 
+        android:onClick="addAll"/>
 
     <ListView
         android:id="@+id/EmailList"
