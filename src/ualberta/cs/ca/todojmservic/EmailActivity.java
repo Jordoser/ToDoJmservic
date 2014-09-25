@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class EmailActivity extends Activity {
 
@@ -61,9 +63,26 @@ public class EmailActivity extends Activity {
 		all.addAll(todo);
 		TodoSingle.getEmails().set(all);
 		
+	}
+	
+	public void sendList(View v){
+		String email = "";
+		ListView listview =  (ListView) findViewById(R.id.EmailList);
+		for(int to=0; to<listview.getChildCount();to++){
+			if (to < listview.getChildCount() -1){
+				TextView text = (TextView) listview.getChildAt(to);
+				email += text.getText().toString()+"\n";
+			}else{
+				TextView text = (TextView) listview.getChildAt(to);
+				email += text.getText().toString();
+			}
 		
+		}
 		
-		
+		Intent send = new Intent(android.content.Intent.ACTION_SEND);
+		send.setType("plain/text");
+		send.putExtra(Intent.EXTRA_TEXT, email);
+		startActivityForResult(send, 1);
 		
 		
 		

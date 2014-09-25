@@ -44,6 +44,7 @@
         android:layout_alignBaseline="@+id/ClearButton"
         android:layout_alignBottom="@+id/ClearButton"
         android:layout_toLeftOf="@+id/AllButton"
-        android:text="Email List" />
+        android:text="Email List" 
+        android:onClick="sendList"/>
 
 </RelativeLayout>
