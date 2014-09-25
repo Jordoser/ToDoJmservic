@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -29,5 +31,12 @@ public class EmailActivity extends Activity {
 		getMenuInflater().inflate(R.menu.email, menu);
 		return true;
 	}
+	
+	public void clear(View v) {
+		//Needs to be notified
+		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
+		TodoSingle.getEmails().clear();
+	}
+
 
 }

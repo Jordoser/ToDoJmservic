@@ -104,6 +104,8 @@ public class TodoList implements Serializable {
 		return scount;
 	}
 
-
+	public void clear(){
+		todolist = new ArrayList<Todos>();
+	}
 
 }
