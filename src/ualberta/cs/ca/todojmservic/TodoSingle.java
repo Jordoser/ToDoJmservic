@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class TodoSingle {
 	private static TodoList todolist = null;
+	private static TodoList emaillist = null;
 	
 	static public TodoList getTodoList(){
 		if (todolist == null){
@@ -40,5 +41,15 @@ public class TodoSingle {
 		getTodoList().addTodo(todos);
 		
 	}
+	
+	static public TodoList getEmails(){
+		if (emaillist != null){
+			return emaillist;
+		}else{
+			emaillist = new TodoList();
+		}
+		return emaillist;
+		}
+	}
 
-}
+

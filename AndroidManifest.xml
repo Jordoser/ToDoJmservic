@@ -30,6 +30,10 @@
             android:name="ualberta.cs.ca.todojmservic.SummarizeActivity"
             android:label="@string/title_activity_summarize" >
         </activity>
+        <activity
+            android:name="ualberta.cs.ca.todojmservic.EmailActivity"
+            android:label="@string/title_activity_email" >
+        </activity>
     </application>
 
 </manifest>

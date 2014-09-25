@@ -25,7 +25,10 @@ import android.widget.Toast;
 //To Send Emails create an email Activity with a list view, allow for sending to list view
 //Email all option populates the list from all, uses email. clear listview after email.
 
+
 public class MainActivity extends Activity {
+	
+	public TodoList emails;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		TodoListIO.init(this.getApplicationContext());
 		ArcIO.init(this.getApplicationContext());
+		emails = new TodoList();
 
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ToDoListView);
@@ -98,10 +102,14 @@ public class MainActivity extends Activity {
 					}
 					
 				});
-				ad.setNegativeButton("Cancel", new OnClickListener(){
+				ad.setNegativeButton("AddToEmail", new OnClickListener(){
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						Todos todo = todoslist.get(finalPosition);
+						emails.addTodo(todo);
+						TodoSingle.getEmails().addTodo(todo);
+						
 					}
 					});
 					
@@ -128,6 +136,11 @@ public class MainActivity extends Activity {
 	public void summarize(MenuItem menu) {
 		//Toast.makeText(this, "summarize", Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(MainActivity.this, SummarizeActivity.class);
+		startActivity(intent);
+	}
+	
+	public void Email(MenuItem menu) {
+		Intent intent = new Intent(this, EmailActivity.class);
 		startActivity(intent);
 	}
 

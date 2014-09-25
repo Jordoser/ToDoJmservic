@@ -17,11 +17,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ArchiveActivity extends Activity {
+	public TodoList emails;
 
+
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.archive);
 		ArcIO.init(this.getApplicationContext());
+		emails = new TodoList();
 		//Get ListObjects
 		ListView listview =  (ListView) findViewById(R.id.ArchiveListView);
 		Collection<Todos> todos = ArchiveSingle.getArchive().getTodos();
@@ -86,10 +90,13 @@ public class ArchiveActivity extends Activity {
 					}
 					
 				});
-				ad.setNegativeButton("Cancel", new OnClickListener(){
+				ad.setNegativeButton("AddToEmail", new OnClickListener(){
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						Todos todo = archivelist.get(finalPosition);
+						emails.addTodo(todo);
+						TodoSingle.getEmails().addTodo(todo);
 					}
 					});
 					

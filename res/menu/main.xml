@@ -13,5 +13,6 @@
     <item android:id="@+id/SummarizeItem"
         android:title="Summarize"
         android:onClick="summarize"/>
+    <item android:id="@+id/Email" android:title="Email" android:onClick="Email"></item>
 
 </menu>
