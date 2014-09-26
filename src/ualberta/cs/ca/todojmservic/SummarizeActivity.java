@@ -1,3 +1,5 @@
+//Creates a summary of all todo items
+
 package ualberta.cs.ca.todojmservic;
 
 import java.util.ArrayList;

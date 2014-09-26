@@ -1,3 +1,5 @@
+//Reads and writes the archive from and to file
+
 package ualberta.cs.ca.todojmservic;
 
 import java.io.ByteArrayInputStream;

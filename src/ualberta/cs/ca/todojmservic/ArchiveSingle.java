@@ -1,3 +1,5 @@
+//Contains a persistent copy of the current archive list and allows for the activities to interface with ArchiveList
+
 package ualberta.cs.ca.todojmservic;
 
 import java.io.IOException;

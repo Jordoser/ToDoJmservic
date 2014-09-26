@@ -1,3 +1,6 @@
+////Contains a persistent copy of the current todolist and allows for the activities to interface with TodoList
+
+
 package ualberta.cs.ca.todojmservic;
 
 import java.io.IOException;

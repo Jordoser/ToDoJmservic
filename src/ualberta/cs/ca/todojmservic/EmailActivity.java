@@ -1,3 +1,5 @@
+//This activity allows the user to populate the email list with todos from archive or todolist as well as a load all button that loads both sets, a clear button, and an email button that sends the email intent
+
 package ualberta.cs.ca.todojmservic;
 
 import java.util.ArrayList;

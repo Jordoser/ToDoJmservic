@@ -1,3 +1,5 @@
+//Main graphical interface allowing for user to navigate to other activities, see and interact with the current todolist and add a todo via the add button and eddit text field
+
 package ualberta.cs.ca.todojmservic;
 
 import java.util.ArrayList;
@@ -22,8 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-//To Send Emails create an email Activity with a list view, allow for sending to list view
-//Email all option populates the list from all, uses email. clear listview after email.
+
 
 
 public class MainActivity extends Activity {

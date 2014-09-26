@@ -1,3 +1,4 @@
+//This Activity is used to show the set of archived Todos and allow for editing of that list
 package ualberta.cs.ca.todojmservic;
 
 import java.util.ArrayList;

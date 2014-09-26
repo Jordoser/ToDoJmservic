@@ -1,3 +1,4 @@
+//Main class that holds list of todos/emails and allows for manipulation of those lists via add, remove as well as keeping track of listeners for the observerpattern
 package ualberta.cs.ca.todojmservic;
 
 import java.io.Serializable;

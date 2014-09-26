@@ -1,3 +1,4 @@
+//String that allows for todos to be checked off/ unchecked aswell as created and returned
 package ualberta.cs.ca.todojmservic;
 
 import java.io.Serializable;
